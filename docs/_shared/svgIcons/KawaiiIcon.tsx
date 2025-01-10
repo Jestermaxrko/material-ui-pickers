@@ -29,7 +29,12 @@ interface KawaiiIconProps extends KawaiiProps {
   className?: string;
 }
 
-const KawaiiIcon: React.FunctionComponent<KawaiiIconProps> = ({ icon, size, ...other }) => {
+const KawaiiIcon: React.FunctionComponent<KawaiiIconProps> = ({
+  icon,
+  size,
+  mood = 'excited',
+  ...other
+}) => {
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down('xs'));
   const calculatedSize = size || isXs ? 230 : 320;
@@ -38,13 +43,9 @@ const KawaiiIcon: React.FunctionComponent<KawaiiIconProps> = ({ icon, size, ...o
 
   return (
     <NoSsr>
-      <Component size={calculatedSize} color={theme.palette.primary.main} {...other} />
+      <Component size={calculatedSize} color={theme.palette.primary.main} {...other} mood={mood} />
     </NoSsr>
   );
-};
-
-KawaiiIcon.defaultProps = {
-  mood: 'excited',
 };
 
 export default KawaiiIcon;

@@ -34,8 +34,8 @@ export const useStyles = makeStyles(
   theme => {
     // prettier-ignore
     const tabsBackground = theme.palette.type === 'light'
-    ? theme.palette.primary.main
-    : theme.palette.background.default;
+      ? theme.palette.primary.main
+      : theme.palette.background.default;
 
     return {
       tabs: {
@@ -47,11 +47,16 @@ export const useStyles = makeStyles(
   { name: 'MuiPickerDTTabs' }
 );
 
+const defProps = {
+  dateRangeIcon: <DateRangeIcon />,
+  timeIcon: <TimeIcon />,
+};
+
 export const DateTimePickerTabs: React.SFC<DateTimePickerTabsProps> = ({
   view,
   onChange,
-  dateRangeIcon,
-  timeIcon,
+  dateRangeIcon = defProps.dateRangeIcon,
+  timeIcon = defProps.timeIcon,
 }) => {
   const classes = useStyles();
   const theme = useTheme();
@@ -76,11 +81,6 @@ export const DateTimePickerTabs: React.SFC<DateTimePickerTabsProps> = ({
       </Tabs>
     </Paper>
   );
-};
-
-DateTimePickerTabs.defaultProps = {
-  dateRangeIcon: <DateRangeIcon />,
-  timeIcon: <TimeIcon />,
 };
 
 export default DateTimePickerTabs;

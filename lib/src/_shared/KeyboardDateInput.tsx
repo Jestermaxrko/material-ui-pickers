@@ -52,6 +52,8 @@ export interface KeyboardDateInputProps
   rifmFormatter?: (str: string) => string;
 }
 
+const defaultKeyboardIcon = <KeyboardIcon />;
+
 export const KeyboardDateInput: React.FunctionComponent<KeyboardDateInputProps> = ({
   inputValue,
   inputVariant,
@@ -65,7 +67,7 @@ export const KeyboardDateInput: React.FunctionComponent<KeyboardDateInputProps> 
   maskChar = '_',
   refuse = /[^\d]+/gi,
   format,
-  keyboardIcon,
+  keyboardIcon = defaultKeyboardIcon,
   disabled,
   rifmFormatter,
   TextFieldComponent = TextField,
@@ -117,10 +119,6 @@ export const KeyboardDateInput: React.FunctionComponent<KeyboardDateInputProps> 
       )}
     </Rifm>
   );
-};
-
-KeyboardDateInput.defaultProps = {
-  keyboardIcon: <KeyboardIcon />,
 };
 
 export default KeyboardDateInput;

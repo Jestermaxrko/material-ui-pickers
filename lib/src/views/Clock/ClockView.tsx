@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import Clock from './Clock';
 import ClockType from '../../constants/ClockType';
 import { useUtils } from '../../_shared/hooks/useUtils';
@@ -24,14 +23,19 @@ export interface TimePickerViewProps {
   onSecondsChange: (date: MaterialUiPickersDate, isFinish?: boolean) => void;
 }
 
+const defProps = {
+  ampm: true,
+  minutesStep: 1,
+};
+
 export const ClockView: React.FC<TimePickerViewProps> = ({
   type,
   onHourChange,
   onMinutesChange,
   onSecondsChange,
-  ampm,
+  ampm = defProps.ampm,
   date,
-  minutesStep,
+  minutesStep = defProps.minutesStep,
 }) => {
   const utils = useUtils();
   const viewProps = React.useMemo(() => {
@@ -86,21 +90,5 @@ export const ClockView: React.FC<TimePickerViewProps> = ({
 };
 
 ClockView.displayName = 'TimePickerView';
-
-ClockView.propTypes = {
-  date: PropTypes.object.isRequired,
-  onHourChange: PropTypes.func.isRequired,
-  onMinutesChange: PropTypes.func.isRequired,
-  onSecondsChange: PropTypes.func.isRequired,
-  ampm: PropTypes.bool,
-  minutesStep: PropTypes.number,
-  type: PropTypes.oneOf(Object.keys(ClockType).map(key => ClockType[key as keyof typeof ClockType]))
-    .isRequired,
-} as any;
-
-ClockView.defaultProps = {
-  ampm: true,
-  minutesStep: 1,
-};
 
 export default React.memo(ClockView);

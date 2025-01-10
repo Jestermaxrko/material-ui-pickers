@@ -42,7 +42,7 @@ interface CodeProps {
   language?: 'jsx' | 'typescript' | 'markup';
 }
 
-const Code: React.SFC<CodeProps> = ({ language = 'jsx', inline, children, withMargin }) => {
+const Code: React.SFC<CodeProps> = ({ language = 'jsx', inline, children, withMargin = false }) => {
   const classes = useStyles();
   const highlightedCode = highlight(children, language);
 
@@ -61,11 +61,6 @@ const Code: React.SFC<CodeProps> = ({ language = 'jsx', inline, children, withMa
       </pre>
     </div>
   );
-};
-
-Code.defaultProps = {
-  withMargin: false,
-  language: 'jsx',
 };
 
 export default Code;

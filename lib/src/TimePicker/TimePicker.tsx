@@ -61,6 +61,7 @@ export const TimePicker = makePickerWithState<TimePickerProps>({
   Input: PureDateInput,
   useState: usePickerState,
   DefaultToolbarComponent: TimePickerToolbar,
+  defProps: defaultProps,
 });
 
 export const KeyboardTimePicker = makePickerWithState<KeyboardTimePickerProps>({
@@ -71,8 +72,5 @@ export const KeyboardTimePicker = makePickerWithState<KeyboardTimePickerProps>({
   getCustomProps: props => ({
     refuse: props.ampm ? /[^\dap]+/gi : /[^\d]+/gi,
   }),
+  defProps: defaultProps,
 });
-
-TimePicker.defaultProps = defaultProps;
-
-KeyboardTimePicker.defaultProps = defaultProps;

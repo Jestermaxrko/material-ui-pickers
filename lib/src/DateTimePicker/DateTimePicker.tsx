@@ -64,6 +64,7 @@ export const DateTimePicker = makePickerWithState<DateTimePickerProps>({
   Input: PureDateInput,
   useState: usePickerState,
   DefaultToolbarComponent: DateTimePickerToolbar,
+  defProps: defaultProps,
 });
 
 export const KeyboardDateTimePicker = makePickerWithState<KeyboardDateTimePickerProps>({
@@ -74,8 +75,5 @@ export const KeyboardDateTimePicker = makePickerWithState<KeyboardDateTimePicker
   getCustomProps: props => ({
     refuse: props.ampm ? /[^\dap]+/gi : /[^\d]+/gi,
   }),
+  defProps: defaultProps,
 });
-
-DateTimePicker.defaultProps = defaultProps;
-
-KeyboardDateTimePicker.defaultProps = defaultProps;

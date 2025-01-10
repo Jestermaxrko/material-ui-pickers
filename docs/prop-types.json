@@ -2,7 +2,7 @@
   "ModalWrapper": {
     "okLabel": {
       "defaultValue": {
-        "value": "OK"
+        "value": "defProps.okLabel"
       },
       "description": "\"OK\" label message",
       "name": "okLabel",
@@ -17,7 +17,7 @@
     },
     "cancelLabel": {
       "defaultValue": {
-        "value": "Cancel"
+        "value": "defProps.cancelLabel"
       },
       "description": "\"CANCEL\" label message",
       "name": "cancelLabel",
@@ -32,7 +32,7 @@
     },
     "clearLabel": {
       "defaultValue": {
-        "value": "Clear"
+        "value": "defProps.clearLabel"
       },
       "description": "\"CLEAR\" label message",
       "name": "clearLabel",
@@ -47,7 +47,7 @@
     },
     "todayLabel": {
       "defaultValue": {
-        "value": "Today"
+        "value": "defProps.todayLabel"
       },
       "description": "\"TODAY\" label message",
       "name": "todayLabel",
@@ -62,7 +62,7 @@
     },
     "showTodayButton": {
       "defaultValue": {
-        "value": false
+        "value": "defProps.showTodayButton"
       },
       "description": "If true today button will be displayed <b>Note*</b> that clear button has higher priority",
       "name": "showTodayButton",
@@ -77,7 +77,7 @@
     },
     "clearable": {
       "defaultValue": {
-        "value": false
+        "value": "defProps.clearable"
       },
       "description": "Show clear action in picker dialog",
       "name": "clearable",
@@ -1752,7 +1752,7 @@
       },
       "required": false,
       "type": {
-        "name": "(\"hours\" | \"minutes\" | \"seconds\")[]"
+        "name": "TimePickerView[]"
       }
     },
     "openTo": {
@@ -2261,7 +2261,7 @@
       },
       "required": false,
       "type": {
-        "name": "(\"hours\" | \"minutes\" | \"seconds\")[]"
+        "name": "TimePickerView[]"
       }
     },
     "openTo": {
@@ -2662,7 +2662,7 @@
       },
       "required": false,
       "type": {
-        "name": "(\"date\" | \"year\" | \"month\" | \"hours\" | \"minutes\")[]"
+        "name": "DateTimePickerView[]"
       }
     },
     "openTo": {
@@ -3432,7 +3432,7 @@
       },
       "required": false,
       "type": {
-        "name": "(\"date\" | \"year\" | \"month\" | \"hours\" | \"minutes\")[]"
+        "name": "DateTimePickerView[]"
       }
     },
     "openTo": {
@@ -3976,7 +3976,7 @@
     },
     "ampm": {
       "defaultValue": {
-        "value": true
+        "value": "defProps.ampm"
       },
       "description": "12h/24h clock mode",
       "name": "ampm",
@@ -3991,7 +3991,7 @@
     },
     "minutesStep": {
       "defaultValue": {
-        "value": 1
+        "value": "defProps.minutesStep"
       },
       "description": "Minutes step",
       "name": "minutesStep",
@@ -4073,7 +4073,7 @@
     },
     "ampm": {
       "defaultValue": {
-        "value": true
+        "value": "defProps.ampm"
       },
       "description": "12h/24h clock mode",
       "name": "ampm",
@@ -4088,7 +4088,7 @@
     },
     "minutesStep": {
       "defaultValue": {
-        "value": 1
+        "value": "defProps.minutesStep"
       },
       "description": "Minutes step",
       "name": "minutesStep",

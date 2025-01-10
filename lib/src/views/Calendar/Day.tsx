@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import clsx from 'clsx';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -53,12 +52,19 @@ export interface DayProps {
   selected?: boolean;
 }
 
+const defProps = {
+  disabled: false,
+  hidden: false,
+  current: false,
+  selected: false,
+};
+
 export const Day: React.FC<DayProps> = ({
   children,
-  disabled,
-  hidden,
-  current,
-  selected,
+  disabled = defProps.disabled,
+  hidden = defProps.hidden,
+  current = defProps.current,
+  selected = defProps.selected,
   ...other
 }) => {
   const classes = useStyles();
@@ -80,19 +86,5 @@ export const Day: React.FC<DayProps> = ({
 };
 
 Day.displayName = 'Day';
-
-Day.propTypes = {
-  current: PropTypes.bool,
-  disabled: PropTypes.bool,
-  hidden: PropTypes.bool,
-  selected: PropTypes.bool,
-};
-
-Day.defaultProps = {
-  disabled: false,
-  hidden: false,
-  current: false,
-  selected: false,
-};
 
 export default Day;

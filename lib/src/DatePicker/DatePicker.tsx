@@ -86,6 +86,7 @@ export const DatePicker = makePickerWithState<DatePickerProps>({
   Input: PureDateInput,
   useState: usePickerState,
   DefaultToolbarComponent: DatePickerToolbar,
+  defProps: defaultProps,
 });
 
 export const KeyboardDatePicker = makePickerWithState<KeyboardDatePickerProps>({
@@ -93,8 +94,5 @@ export const KeyboardDatePicker = makePickerWithState<KeyboardDatePickerProps>({
   Input: KeyboardDateInput,
   useState: useKeyboardPickerState,
   DefaultToolbarComponent: DatePickerToolbar,
+  defProps: defaultProps,
 });
-
-DatePicker.defaultProps = defaultProps;
-
-KeyboardDatePicker.defaultProps = defaultProps;

@@ -82,18 +82,30 @@ const useStyles = makeStyles(
   { name: 'MuiPickersBasePicker' }
 );
 
+const defProps = {
+  ...datePickerDefaultProps,
+  views: Object.keys(viewsMap),
+} as any;
+
 export const Picker: React.FunctionComponent<PickerProps> = ({
   date,
-  views,
+  views = defProps.views,
   disableToolbar,
   onChange,
   openTo,
-  minDate: unparsedMinDate,
-  maxDate: unparsedMaxDate,
+  minDate: unparsedMinDate = defProps.minDate,
+  maxDate: unparsedMaxDate = defProps.maxDate,
   ToolbarComponent,
   orientation,
-  ...rest
+  ...initialRest
 }) => {
+  const rest = {
+    invalidDateMessage: 'Invalid Date Format',
+    minDateMessage: 'Date should not be before minimal date',
+    maxDateMessage: 'Date should not be after maximal date',
+    allowKeyboardControl: true,
+    ...initialRest,
+  };
   const utils = useUtils();
   const classes = useStyles();
   const isLandscape = useIsLandscape(orientation);
@@ -165,8 +177,3 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
     </div>
   );
 };
-
-Picker.defaultProps = {
-  ...datePickerDefaultProps,
-  views: Object.keys(viewsMap),
-} as any;

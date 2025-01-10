@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import SlideTransition, { SlideDirection } from './SlideTransition';
 import IconButton, { IconButtonProps } from '@material-ui/core/IconButton';
@@ -56,15 +55,22 @@ export const useStyles = makeStyles(
   { name: 'MuiPickersCalendarHeader' }
 );
 
+const defProps = {
+  leftArrowIcon: <ArrowLeftIcon />,
+  rightArrowIcon: <ArrowRightIcon />,
+  disablePrevMonth: false,
+  disableNextMonth: false,
+};
+
 export const CalendarHeader: React.SFC<CalendarHeaderProps> = ({
   currentMonth,
   onMonthChange,
-  leftArrowIcon,
-  rightArrowIcon,
+  leftArrowIcon = defProps.leftArrowIcon,
+  rightArrowIcon = defProps.rightArrowIcon,
   leftArrowButtonProps,
   rightArrowButtonProps,
-  disablePrevMonth,
-  disableNextMonth,
+  disablePrevMonth = false,
+  disableNextMonth = false,
   slideDirection,
 }) => {
   const utils = useUtils();
@@ -123,19 +129,5 @@ export const CalendarHeader: React.SFC<CalendarHeaderProps> = ({
 };
 
 CalendarHeader.displayName = 'CalendarHeader';
-
-CalendarHeader.propTypes = {
-  leftArrowIcon: PropTypes.node,
-  rightArrowIcon: PropTypes.node,
-  disablePrevMonth: PropTypes.bool,
-  disableNextMonth: PropTypes.bool,
-};
-
-CalendarHeader.defaultProps = {
-  leftArrowIcon: <ArrowLeftIcon />,
-  rightArrowIcon: <ArrowRightIcon />,
-  disablePrevMonth: false,
-  disableNextMonth: false,
-};
 
 export default CalendarHeader;

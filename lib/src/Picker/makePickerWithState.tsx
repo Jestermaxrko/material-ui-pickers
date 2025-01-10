@@ -25,6 +25,7 @@ export interface MakePickerOptions<T extends any> {
   useOptions: (props: any) => StateHookOptions;
   getCustomProps?: (props: T) => Partial<T>;
   DefaultToolbarComponent: React.ComponentType<ToolbarComponentProps>;
+  defProps: any;
 }
 
 export function makePickerWithState<T extends any>({
@@ -33,8 +34,11 @@ export function makePickerWithState<T extends any>({
   useOptions,
   getCustomProps,
   DefaultToolbarComponent,
+  defProps,
 }: MakePickerOptions<T>): React.FC<T> {
-  function PickerWithState(props: T) {
+  function PickerWithState(initialProps: T) {
+    const props = { ...defProps, ...(initialProps as any) };
+
     const {
       allowKeyboardControl,
       ampm,

@@ -28,7 +28,7 @@ const ToolbarButton: React.FunctionComponent<ToolbarButtonProps> = ({
   ...other
 }) => {
   return (
-    <Button variant="text" className={clsx(classes.toolbarBtn, className)} {...other}>
+    <Button variant="text" className={clsx(classes.toolbarBtn, className || '')} {...other}>
       <ToolbarText
         align={align}
         className={typographyClassName}
@@ -46,10 +46,6 @@ const ToolbarButton: React.FunctionComponent<ToolbarButtonProps> = ({
   classes: PropTypes.any.isRequired,
   className: PropTypes.string,
   innerRef: PropTypes.any,
-};
-
-ToolbarButton.defaultProps = {
-  className: '',
 };
 
 export const styles = createStyles({

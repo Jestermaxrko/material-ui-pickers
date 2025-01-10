@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import ModalDialog from '../_shared/ModalDialog';
 import { WrapperProps } from './Wrapper';
 import { Omit } from '../_helpers/utils';
@@ -44,15 +43,24 @@ export interface ModalWrapperProps<T = {}> extends WrapperProps<T> {
   DialogProps?: Partial<Omit<MuiDialogProps, 'classes'>>;
 }
 
+const defProps = {
+  okLabel: 'OK',
+  cancelLabel: 'Cancel',
+  clearLabel: 'Clear',
+  todayLabel: 'Today',
+  clearable: false,
+  showTodayButton: false,
+};
+
 export const ModalWrapper: React.FC<ModalWrapperProps<any>> = ({
   open,
   children,
-  okLabel,
-  cancelLabel,
-  clearLabel,
-  todayLabel,
-  showTodayButton,
-  clearable,
+  okLabel = defProps.okLabel,
+  cancelLabel = defProps.cancelLabel,
+  clearLabel = defProps.clearLabel,
+  todayLabel = defProps.todayLabel,
+  showTodayButton = defProps.showTodayButton,
+  clearable = defProps.clearable,
   DialogProps,
   showTabs,
   wider,
@@ -91,23 +99,4 @@ export const ModalWrapper: React.FC<ModalWrapperProps<any>> = ({
       />
     </React.Fragment>
   );
-};
-
-ModalWrapper.propTypes = {
-  okLabel: PropTypes.node,
-  cancelLabel: PropTypes.node,
-  clearLabel: PropTypes.node,
-  clearable: PropTypes.bool,
-  todayLabel: PropTypes.node,
-  showTodayButton: PropTypes.bool,
-  DialogProps: PropTypes.object,
-} as any;
-
-ModalWrapper.defaultProps = {
-  okLabel: 'OK',
-  cancelLabel: 'Cancel',
-  clearLabel: 'Clear',
-  todayLabel: 'Today',
-  clearable: false,
-  showTodayButton: false,
 };
